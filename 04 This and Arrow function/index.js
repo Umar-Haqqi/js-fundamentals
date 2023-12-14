@@ -19,3 +19,20 @@ console.log('thisssssss', this);
 // the output will be empty
 // but if use this same code in browser console, it will print window object
 // window object is the global object
+
+
+
+const func = function () {
+    let username = "umar";
+    console.log("simple function:", this.username);     // ouptut will be undefined
+    // this is not available in function scope, only working with objects.
+}
+func();
+
+// same with arrow fucntion
+const arrowFunc = () => {
+    let username = "umar";
+    console.log("Arrow function: ",this.username);
+    console.log(this);
+}
+arrowFunc();
