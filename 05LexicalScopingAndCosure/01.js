@@ -8,7 +8,7 @@ function outer() {
     }
 
     function innerTwo() {
-        console.log("innerOneVar in innerTwo: ", innerOneVar);
+        console.log("innerOneVar in innerTwo: ", outerVar);
     }
 
     innerOne();
