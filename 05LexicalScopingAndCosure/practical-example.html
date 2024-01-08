@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical Scoping and Closures</title>
+</head>
+
+<body style="background: #313131;">
+    <button id="green">Green</button>
+    <button id="orange">Orange</button>
+
+    <script>
+        // document.getElementById("green").onclick = function () {
+        //     document.body.style.background = "green";
+        // }
+        // document.getElementById("orange").onclick = function () {
+        //     document.body.style.background = "orange";
+        // }
+        // *** above code is against the javascript DRY principle
+
+
+        // function clickHandler(color) {
+        //     document.body.style.background = `${color}`;
+        // }
+
+        // document.getElementById("orange").onclick = clickHandler("orange");
+        // document.getElementById("green").onclick = clickHandler("green");
+        // *** above code automatically calls the function clickHandler and changes the background color without clicking the button
+
+
+        // *** to solve the problem 
+        function clickHandler(color) {
+
+            // this function has access to the color variable because of lexical scoping and closure
+            return function(){
+                document.body.style.background = `${color}`;
+            }
+        }    
+        
+        document.getElementById("green").onclick = clickHandler("green");
+        document.getElementById("orange").onclick = clickHandler("orange");
+
+    </script>
+
+</body>
+
+</html>
